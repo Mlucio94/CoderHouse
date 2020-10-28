@@ -3,8 +3,7 @@ import React,{useState} from 'react';
 
 
 function ItemCount ({stock,initial,onAdd}){
-    stock=10;
-    initial=0;
+   
     const [counter,setcouter] =useState(initial);
 
     function add(){
@@ -20,11 +19,8 @@ function ItemCount ({stock,initial,onAdd}){
     }
     function addCart(){
         if (counter>0){
-
-            // onAdd(counter);
-            onAdd=counter;
+            onAdd(counter);
         }
-        alert(onAdd); //esta asi para tener un testigo hasta tener la funcion onAdd
     }
 
     return <>

@@ -14,7 +14,11 @@ function Card({image,CardTitle}){
                 <div class="row justify-content-between">
                     <h3 class="float-left  text-center text-info col-md">$ 999</h3>
                     <div class="col-md">
-                     <ItemCount/> 
+                     <ItemCount
+                        stock={10}
+                        initial={0}
+                        onAdd={cant => alert(`Agregados al carrito: ${cant}`)}
+                     /> 
                     </div>
                 </div>
             </div>
