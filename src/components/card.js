@@ -1,8 +1,28 @@
-import React from 'react';
-import ItemCount from './itemCount';
+import React, { useEffect, useState } from 'react';
+import ItemDetailContainer from './itemDetailContainer';
+
+// const getItem = () =>{
+        
+//     return new Promise((res,rej)=>{
+//         setTimeout(()=>{
+//             res( [{id,image,prodName,prodDesc,price,stock}]
+                
+//             );
+//         },2000)
+    
+//     });
+// }
 
 
 function Card({id,image,prodName,prodDesc,price,stock}){
+    // const [item,setItem]=useState(null);
+
+    // useEffect(()=>{
+    //     console.log('iniciando conteiner');
+    //     getItem().then(item=>{
+    //         setItem(item);
+    //     })
+    // })  
     return <>
         <div class="card col-md-3">
            
@@ -15,11 +35,12 @@ function Card({id,image,prodName,prodDesc,price,stock}){
                 <div class="row justify-content-between">
                     <h3 class="float-left  text-center text-info col-md">{price}</h3>
                     <div class="col-md">
-                     <ItemCount
-                        stock={stock}
-                        initial={0}
-                        onAdd={cant => alert(`Agregados al carrito: ${cant}`)}
-                     /> 
+                        <button type="button" class="btn btn-outline-pink" data-toggle="modal" data-target="#exampleModal">
+                        DETALLE
+                        </button>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <ItemDetailContainer ></ItemDetailContainer>
+                        </div>
                     </div>
                 </div>
             </div>
