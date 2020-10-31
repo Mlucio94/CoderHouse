@@ -57,26 +57,19 @@ function ItemListContainer({Title}){
         getItems().then(items=>{
             setItems(items);
         })
-    })  
+    },[])  
     return <>
         <div class="container-md mt-4 mb-4">
             <h2>{Title}</h2>
-            <div class="card-deck mt-4">
-                {items && <Card items={items}></Card>}
-            </div>
-            {/* <div class="card-deck mt-4">
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-            </div>
-            <div class="card-deck mt-4">
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-            </div> */}
-        </div>
+            
+
+                <div class="row row-cols-1 row-cols-md-2 mt-4 ">
+                
+                    {items && items.map(item => <Card item={item}/>)}
+                </div>
+
+            
+       </div>
     </>
 
 }

@@ -1,50 +1,59 @@
 import React, { useEffect, useState } from 'react';
 import ItemDetailContainer from './itemDetailContainer';
 
-// const getItem = () =>{
+const getDetail = () =>{
         
-//     return new Promise((res,rej)=>{
-//         setTimeout(()=>{
-//             res( [{id,image,prodName,prodDesc,price,stock}]
-                
-//             );
-//         },2000)
+    return new Promise((res,rej)=>{
+        setTimeout(()=>{
+            res( {
+                  id:0,
+                    image:"https://http2.mlstatic.com/D_NQ_NP_749088-MLA43301556023_082020-O.webp",
+                    prodName:"Producto 1",
+                    prodDescExt:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris volutpat purus et odio ullamcorper molestie. Phasellus finibus risus velit, et ultricies neque ullamcorper laoreet. Nunc fringilla odio bibendum, semper augue gravida, gravida erat. Curabitur imperdiet id ipsum nec blandit. Fusce vitae aliquam mauris, sit amet aliquet ipsum. Orci varius natoque.",
+                    price:"$999",
+                    stock:20
+                } 
+            );
+        },2000)
     
-//     });
-// }
+    });
+}
 
 
-function Card({id,image,prodName,prodDesc,price,stock}){
-    // const [item,setItem]=useState(null);
+function Card({item}){
+    const [detail,setDetail]=useState(null);
 
-    // useEffect(()=>{
-    //     console.log('iniciando conteiner');
-    //     getItem().then(item=>{
-    //         setItem(item);
-    //     })
-    // })  
+    useEffect(()=>{
+        console.log('iniciando conteiner');
+        getDetail().then(detail=>{
+            setDetail(detail);
+        })
+    },[])  
     return <>
-        <div class="card col-md-3">
+    <div className="col-md-3">
+        <div class="card mb-4">
            
-            <img src={image} class="card-img-top" alt="..."/>
+            <img src={item.image} class="card-img-top" alt="..."/>
             <div class="card-body">
-            <h5 class="card-title">{prodName}</h5>
-            <p class="card-text">{prodDesc}</p>
+            <h5 class="card-title">{item.prodName}</h5>
+            <p class="card-text">{item.prodDesc}</p>
             </div>
             <div class="card-footer containter">
                 <div class="row justify-content-between">
-                    <h3 class="float-left  text-center text-info col-md">{price}</h3>
+                    <h3 class="float-left  text-center text-info col-md">{item.price}</h3>
                     <div class="col-md">
                         <button type="button" class="btn btn-outline-pink" data-toggle="modal" data-target="#exampleModal">
                         DETALLE
                         </button>
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <ItemDetailContainer ></ItemDetailContainer>
+                            {detail && <ItemDetailContainer detail={detail}/>}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+    </div>
     </>
 }
 
