@@ -1,43 +1,69 @@
 import React, { useEffect, useState } from 'react';
-import ItemCount from './itemCount';
+import { useParams } from 'react-router-dom';
+import ItemDetail from './itemDetail';
 
+const getItem = () =>{
+        
+    return new Promise((res,rej)=>{
+            res(
+                [
+                    {   id:0,
+                        image:"https://http2.mlstatic.com/D_NQ_NP_749088-MLA43301556023_082020-O.webp",
+                        prodName:"Producto 1",
+                        prodDesc:"Este es el primer producto",
+                        price:"$999",
+                        stock:20
+                    },
+                    {   id:1,
+                        image:"https://http2.mlstatic.com/D_NQ_NP_749088-MLA43301556023_082020-O.webp",
+                        prodName:"Producto 2",
+                        prodDesc:"Este es el segundo producto",
+                        price:"$995",
+                        stock:20,
+                    },
+                    {   id:2,
+                        image:"https://http2.mlstatic.com/D_NQ_NP_749088-MLA43301556023_082020-O.webp",
+                        prodName:"Producto 3",
+                        prodDesc:"Este es el tercer producto",
+                        price:"$999",
+                        stock:20
+                    },
+                    {   id:3,
+                        image:"https://http2.mlstatic.com/D_NQ_NP_749088-MLA43301556023_082020-O.webp",
+                        prodName:"Producto 4",
+                        prodDesc:"Este es el cuarto producto",
+                        price:"$99",
+                        stock:20
+                    },
+                    {   id:4,
+                        image:"https://http2.mlstatic.com/D_NQ_NP_749088-MLA43301556023_082020-O.webp",
+                        prodName:"Producto 5",
+                        prodDesc:"Este es el quinto producto",
+                        price:"$999",
+                        stock:20
+                    },
+                ]
+            );
+        
+    
+    });
+}
 
-function ItemDetailContainer({detail}){
+function ItemDetailContainer(){
+    const [item,setItem]=useState(null);
+    const { id } = useParams();
+
+    useEffect(()=>{
+        console.log('iniciando detalle con id', id);
+        getItem(id).then(item=>{
+            setItem(item);
+        })
+    },[id]); 
     
     return <>
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header bg-nav">
-                    <h5 class="modal-title">{detail.prodName}</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    
-                    <div class="row justify-content-between">
-                    <img src={detail.image} class=" img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt=""/>
-                    <p className="m-2">{detail.prodDescExt}</p>
-                    
-                    <div class="col-md">
-                    <h3 class="float-left  text-center text-info col-md">{detail.price}</h3>
-                    
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <ItemCount
-                        stock={detail.stock}
-                        initial={0}
-                        onAdd={cant => alert(`Agregados al carrito: ${cant}`)}
-                     /> 
-                </div>
-                </div>
-               </div>
-           </div>
+         {item && <ItemDetail item={item}/>}
     </>
 
 }
-
-
 
 export default ItemDetailContainer;

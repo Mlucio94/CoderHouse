@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ItemDetailContainer from './itemDetailContainer';
+import {Link} from 'react-router-dom';
 
 const getDetail = () =>{
         
@@ -42,12 +43,7 @@ function Card({item}){
                 <div class="row justify-content-between">
                     <h3 class="float-left  text-center text-info col-md">{item.price}</h3>
                     <div class="col-md">
-                        <button type="button" class="btn btn-outline-pink" data-toggle="modal" data-target="#exampleModal">
-                        DETALLE
-                        </button>
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            {detail && <ItemDetailContainer detail={detail}/>}
-                        </div>
+                       <Link to={`/item/${item.id}`}> Detalle</Link>
                     </div>
                 </div>
             </div>

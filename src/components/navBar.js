@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 
 function NavBar(){
@@ -14,20 +15,20 @@ function NavBar(){
                     <div className="collapse navbar-collapse " id="navbarSupportedContent">
                             <ul className="navbar-nav mr-auto">
                             <li className="nav-item active">
-                                <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+                                <Link className="nav-link" to={'/'}>Home <span className="sr-only">(current)</span></Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Ofertas</a>
+                                <Link to={'/ofertas'} className="nav-link">Ofertas</Link>
                             </li>
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Tienda
                                 </a>
                                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a className="dropdown-item" href="#">Cuadros</a>
-                                <a className="dropdown-item" href="#">Box</a>
+                                    <Link to={'/cuadros'} className="dropdown-item">Cuadros</Link>
+                                    <Link to={'/box'} className="dropdown-item">Box</Link>
                                 <div className="dropdown-divider"></div>
-                                <a className="dropdown-item" href="#">Macetas</a>
+                                    <Link to={'/Macetas'} className="dropdown-item">Macetas</Link>
                                 </div>
                             </li>
                             <li className="nav-item">

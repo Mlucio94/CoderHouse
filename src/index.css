@@ -37,3 +37,20 @@ code {
   top: 100px;
   left:10%;
 }
+@media (max-width:768px){
+ 
+  .title{
+    top: 80px;
+    left:10%;
+  }
+}
+@media (max-width: 425px){
+ 
+  .title{
+    top: 30px;
+    left:10%;
+  }
+  .title :last-child{
+    display: none;
+  }
+}
