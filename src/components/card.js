@@ -40,10 +40,10 @@ function Card({item}){
             <p class="card-text">{item.prodDesc}</p>
             </div>
             <div class="card-footer containter">
-                <div class="row justify-content-between">
-                    <h3 class="float-left  text-center text-info col-md">{item.price}</h3>
-                    <div class="col-md">
-                       <Link to={`/item/${item.id}`}> Detalle</Link>
+                <div class="row align-items-center justify-content-between">
+                    <h3 class="float-left  text-center text-info col-md-6">{item.price}</h3>
+                    <div class="col-md-6">
+                       <Link to={`/item/${item.id}`} class="btn btn-outline-pink"> Detalle</Link>
                     </div>
                 </div>
             </div>
