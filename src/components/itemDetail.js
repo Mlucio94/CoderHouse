@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+import BtnCart from './btnCart';
 import ItemCount from './itemCount';
 
 
 function ItemDetail({item}){
-
+    const[cant,setCant]= useState(null);
+    
+    console.log(cant);
 
 
     return <>
@@ -33,8 +36,12 @@ function ItemDetail({item}){
                             <ItemCount
                                 stock={item.stock}
                                 initial={0}
-                                onAdd={cant => alert(`Agregados al carrito: ${cant}`)}
+                                onAdd = {valor => setCant(valor)}
                              /> 
+                             <BtnCart 
+                                id={item.id}
+                                cant={cant}
+                             ></BtnCart>
                         </div>
                     </div>    
                     
