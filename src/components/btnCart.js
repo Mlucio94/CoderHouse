@@ -1,24 +1,32 @@
-import React,{useState} from 'react';
+import React,{useContext, useEffect} from 'react';
+import { CartContext } from '../context/cartContext';
 
 
 
 function BtnCart ({id,cant}){
-   
-  
+
+    const cart = useContext(CartContext);
+
+
+    useEffect (()=>{
+        console.log('montado')
+
+        return () => {
+            console.log('desmontado')
+        }
+       
+    },[cant])
+    
 
     function addToCart(){
-       alert(`Añadiste ${cant} elementos del producto ${id}`)
+       cart.add(id,cant);
     }
     
 
   
-    return  <button  onClick={addToCart} class="text-center btn btn-outline-pink float-right col-12">
-                    <p>Añadir {cant}</p>
+    return  <button  onClick={addToCart} class="text-center btn btn-outline-pink btn-sm">
+                    <p class="m-1">Añadir {cant}</p>
                 </button>
-       
-       
- 
-
     
 }
 
