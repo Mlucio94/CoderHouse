@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import ItemDetailContainer from './itemDetailContainer';
 import {Link} from 'react-router-dom';
 
 const getDetail = () =>{

@@ -8,16 +8,6 @@ function BtnCart ({id,cant}){
     const cart = useContext(CartContext);
 
 
-    useEffect (()=>{
-        console.log('montado')
-
-        return () => {
-            console.log('desmontado')
-        }
-       
-    },[cant])
-    
-
     function addToCart(){
        cart.add(id,cant);
     }

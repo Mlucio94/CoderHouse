@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext} from 'react';
 import BtnCart from './btnCart';
 import ItemCount from './itemCount';
+import { CartContext } from '../context/cartContext';
 
 
 function ItemDetail({item}){
-    const[cant,setCant]= useState(null);
-    
-    console.log(cant);
 
+    const[cant,setCant]= useState(null);
+       
 
     return <>
         <div className="container-md mt-4">

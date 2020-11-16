@@ -1,12 +1,13 @@
 import React,{useEffect, useState} from 'react';
-import BtnCart from './btnCart';
+
 
 
 
 function ItemCount ({stock,initial,onAdd}){
    
     const [counter,setcouter] =useState(initial);
-
+   
+ 
     useEffect (()=>{
         onAdd(counter)
     },[counter])

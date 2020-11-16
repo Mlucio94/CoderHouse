@@ -4,6 +4,7 @@ import NavBar from './components/navBar';
 import Home from './components/home';
 import ItemListContainer from './components/itemListContainer';
 import ItemDetailContainer from './components/itemDetailContainer';
+import Cart from './components/cart';
 import './App.css';
 import CartProvider from './context/cartContext';
 
@@ -15,6 +16,9 @@ function App() {
         <Switch>
           <Route exact path="/"> 
             <Home/>
+          </Route>
+          <Route exact path="/cart"> 
+            <Cart/>
           </Route>
           <Route path="/cuadros"> 
             <ItemListContainer Title='Cuadros'/>
