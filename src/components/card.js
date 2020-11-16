@@ -10,7 +10,7 @@ const getDetail = () =>{
                     image:"https://http2.mlstatic.com/D_NQ_NP_749088-MLA43301556023_082020-O.webp",
                     prodName:"Producto 1",
                     prodDescExt:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris volutpat purus et odio ullamcorper molestie. Phasellus finibus risus velit, et ultricies neque ullamcorper laoreet. Nunc fringilla odio bibendum, semper augue gravida, gravida erat. Curabitur imperdiet id ipsum nec blandit. Fusce vitae aliquam mauris, sit amet aliquet ipsum. Orci varius natoque.",
-                    price:"$999",
+                    price:999,
                     stock:20
                 } 
             );
@@ -40,7 +40,7 @@ function Card({item}){
             </div>
             <div class="card-footer containter">
                 <div class="row align-items-center justify-content-between">
-                    <h3 class="float-left  text-center text-info col-md-6">{item.price}</h3>
+                    <h3 class="float-left  text-center text-info col-md-6">${item.price}</h3>
                     <div class="col-md-6">
                        <Link to={`/item/${item.id}`} class="btn btn-outline-pink"> Detalle</Link>
                     </div>

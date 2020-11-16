@@ -9,21 +9,25 @@ const CartProvider = ({children,defaultCart}) => {
     const [cart,setCart] = useState (defaultCart);
 
 
-   
-
     function add(item,qty){
 
-        const result = cart.filter(cart => cart.id == item);
+        const result = cart.filter(cart => cart.id == item.id);
+        console.log(result)
        
+        if(result.length != 0){
+            console.log('paso por el if')
 
-        if(result != null){
             const productosFiltrados = cart.filter(
-                cart => cart.id !== item
+                cart => cart.id !== item.id
               );
-
-              const itemModificado = {
-                id: item,
-                cant: (result.cant + qty)
+            console.log(result.cant)
+            const nuevaCantidad = (parseFloat(result.cant) + parseFloat(qty))
+            console.log(nuevaCantidad)
+            const itemModificado = {
+                id: item.id,
+                name:item.prodName,
+                price:item.price,
+                cant: nuevaCantidad
             };
             
             const nuevoItemModificado = [...productosFiltrados,itemModificado];
@@ -31,7 +35,9 @@ const CartProvider = ({children,defaultCart}) => {
         }else{
 
             const newItem = {
-                id: item,
+                id: item.id,
+                name:item.prodName,
+                price:item.price,
                 cant: qty
             };
             
@@ -39,7 +45,7 @@ const CartProvider = ({children,defaultCart}) => {
             setCart(nuevoItemAgregado);
 
         }
-        alert(`Añadiste ${qty} elementos del producto ${item}`);
+        alert(`Añadiste ${qty} elementos del producto ${item.id}`);
         
         console.log(cart);
     }
@@ -54,7 +60,7 @@ const CartProvider = ({children,defaultCart}) => {
 
     }
     function clear(){
-      
+      setCart([]);
     }
 
     return <CartContext.Provider value = {{cart,add,remove,clear}}>

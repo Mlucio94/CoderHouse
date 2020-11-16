@@ -6,6 +6,9 @@ function Cart(){
     const [total,setTotal]= useState(0);
     const cart = useContext(CartContext);
 
+    function clearCart(){
+        cart.clear();
+    }
   
 
     return <>
@@ -18,7 +21,7 @@ function Cart(){
                     <th scope="col">Cantidad</th>
                     <th scope="col">Precio</th>
                     <th scope="col">               
-                     {/* <button className="btn btn-outline-pink my-2 my-sm-0 m-1" type="submit" onClick={cart.clear()}> Remove all</button> */}
+                     <button className="btn btn-outline-pink my-2 my-sm-0 m-0 text-white" type="submit" onClick={clearCart}> Remove all</button>
                     </th>
                     </tr>
                 </thead> 

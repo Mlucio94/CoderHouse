@@ -3,13 +3,13 @@ import { CartContext } from '../context/cartContext';
 
 
 
-function BtnCart ({id,cant}){
+function BtnCart ({item,cant}){
 
     const cart = useContext(CartContext);
 
 
     function addToCart(){
-       cart.add(id,cant);
+       cart.add(item,cant);
     }
     
 

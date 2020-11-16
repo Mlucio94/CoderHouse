@@ -30,7 +30,7 @@ function ItemDetail({item}){
                 <div class="card-footer text-muted container">
                     <div class="row align-items-center">
                         <div class="col-md-6">
-                            <p class="h1 text-info card-text">{item.price}</p>
+                            <p class="h1 text-info card-text">${item.price}</p>
                         </div>
                         <div class="col-md-6">
                             <ItemCount
@@ -39,7 +39,7 @@ function ItemDetail({item}){
                                 onAdd = {valor => setCant(valor)}
                              /> 
                              <BtnCart 
-                                id={item.id}
+                                item={item}
                                 cant={cant}
                              ></BtnCart>
                         </div>
