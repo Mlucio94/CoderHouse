@@ -6,10 +6,24 @@ function Cart(){
     const [total,setTotal]= useState(0);
     const cart = useContext(CartContext);
 
+    useEffect(()=>{
+
+        const price = cart.cart.map(elemento => elemento= cart.cart[0].monto);
+        console.log(price);
+        const sum = price.reduce((a, b) => a + b,0);
+        console.log(sum);
+        setTotal(sum);
+
+    },[cart]);
+
+
     function clearCart(){
         cart.clear();
     }
   
+    
+       
+    
 
     return <>
         <div class= "container-md mt-4 mb-4">

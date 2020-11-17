@@ -15,7 +15,7 @@ function CartItem({item}){
             <th scope="row">1</th>
             <td>{item.name}</td>
             <td>{item.cant}</td>
-            <td>${item.price}</td>
+            <td>${item.monto}</td>
             <td> 
                 <button className="btn btn-outline-pink my-2 my-sm-0 m-1" type="submit" onClick={removeElement}> Remove </button>
             </td>

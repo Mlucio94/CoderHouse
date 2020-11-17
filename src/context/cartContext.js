@@ -20,24 +20,27 @@ const CartProvider = ({children,defaultCart}) => {
             const productosFiltrados = cart.filter(
                 cart => cart.id !== item.id
               );
-            console.log(result.cant)
-            const nuevaCantidad = (parseFloat(result.cant) + parseFloat(qty))
-            console.log(nuevaCantidad)
+           
+            const nuevaCantidad = (parseFloat(result[0].cant) + parseFloat(qty));
+            const nuevoMonto= item.price*nuevaCantidad;
+            
             const itemModificado = {
                 id: item.id,
                 name:item.prodName,
                 price:item.price,
+                monto: nuevoMonto,
                 cant: nuevaCantidad
             };
             
             const nuevoItemModificado = [...productosFiltrados,itemModificado];
             setCart(nuevoItemModificado);
         }else{
-
+            const monto = item.price* qty;
             const newItem = {
                 id: item.id,
                 name:item.prodName,
                 price:item.price,
+                monto: monto,
                 cant: qty
             };
             

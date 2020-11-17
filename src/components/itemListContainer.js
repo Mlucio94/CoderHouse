@@ -58,6 +58,18 @@ function ItemListContainer({Title}){
         getItems().then(items=>{
             setItems(items);
         })
+        // const db= getFirestore();
+        // const itemcolletions = db.collection("items");
+
+        // itemcolletions.get().then((querySnapshot)=> {
+        //     if(querySnapshot.size === 0 ){
+        //         console.log('no results');
+        //     };
+        //     setItems(
+        //         querySnapshot.docs.map(doc => ({id: doc.id,...doc.data()}))
+        //     )
+        // })
+        
     },[])  
     return <>
         <div class="container-md mt-4 mb-4">
