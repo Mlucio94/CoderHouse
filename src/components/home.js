@@ -11,7 +11,7 @@ function Home(){
                 <p>"Pensalo y nosotros lo hacemos"</p>     
             </div>
         </div>
-        <ItemListContainer Title='Lista 1'/>
+        <ItemListContainer Title='item'/>
 
     </>
 

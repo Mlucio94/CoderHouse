@@ -21,16 +21,16 @@ function App() {
             <Cart/>
           </Route>
           <Route path="/cuadros"> 
-            <ItemListContainer Title='Cuadros'/>
+            <ItemListContainer Title='cuadros'/>
           </Route>
           <Route path="/box"> 
-            <ItemListContainer Title='Box'/>
+            <ItemListContainer Title='box'/>
           </Route>
           <Route path="/macetas"> 
-            <ItemListContainer Title='Macetas'/>
+            <ItemListContainer Title='macetas'/>
           </Route>
           <Route path="/ofertas"> 
-            <ItemListContainer Title='Ofertas'/>
+            <ItemListContainer Title='ofertas'/>
           </Route>
           <Route path="/item/:id"> 
             <ItemDetailContainer></ItemDetailContainer>
